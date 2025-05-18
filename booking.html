@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CNG Pump List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #9ACD32; /* YellowGreen */
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    #pumpList {
+      max-width: 500px;
+      margin: auto;
+      text-align: left;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .pump-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .book-btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .book-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Nearby CNG Pumps</h1>
+
+  <div id="pumpList">
+    <!-- Pump list will be added by JavaScript -->
+  </div>
+
+  <script>
+    const pumps = [
+      { name: "Akash CNG Pump" },
+      { name: "Amit CNG Pump" },
+      { name: "Suraj CNG Pump" }
+    ];
+
+    const listContainer = document.getElementById("pumpList");
+
+    pumps.forEach(pump => {
+      const item = document.createElement("div");
+      item.className = "pump-item";
+
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = pump.name;
+
+      const btn = document.createElement("button");
+      btn.className = "book-btn";
+      btn.textContent = "Book Now";
+      btn.onclick = () => {
+        window.location.href = "booking1.html";
+      };
+
+      item.appendChild(nameSpan);
+      item.appendChild(btn);
+      listContainer.appendChild(item);
+    });
+  </script>
+
+</body>
+</html>

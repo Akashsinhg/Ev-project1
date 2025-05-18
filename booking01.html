@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Location Booking</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #9ACD32; /* YellowGreen background */
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Find the nearest CNG pump</h1>
+
+    <input type="text" placeholder="From (Pickup location)" id="fromLocation" />
+    <input type="text" placeholder="To (Drop-off location)" id="toLocation" />
+    <button class="btn" onclick="goToBooking()">Book Now</button>
+  </div>
+
+  <script>
+    function goToBooking() {
+      const from = document.getElementById("fromLocation").value.trim();
+      const to = document.getElementById("toLocation").value.trim();
+
+      if (from === "" || to === "") {
+        alert("Please fill in both locations before booking.");
+      } else {
+        sessionStorage.setItem("fromLocation", from);
+        sessionStorage.setItem("toLocation", to);
+        window.location.href = "booking.html";
+      }
+    }
+  </script>
+
+</body>
+</html>
